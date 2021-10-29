@@ -1,18 +1,29 @@
 import random 
+import seaborn as sns
+import matplotlib.pyplot as ply
+
 iterations = 10000
-variables =['salary', 'location', 'work hours', "job position", "services", "partners", "environment", "social benefits", "prestige", "transport"]
+variables =['work', 'salary', 'conditions', 'career_advancement', 'social_impact', 'job_security', 'life_balance', 'location', 'atmosphere', 'travel']
 
 def Monte_Carlo(grade):
     final_results = []
-    weight = [0.2, 0.15, 0.15, 0.07, 0.11, 0.03, 0.08, 0.10, 0.05, 0.06]
-    for i in range(iterations):
+    weight = [0.15, 0.09, 0.12, 0.11, 0.12, 0.02, 0.11, 0.07, 0.1, 0.11]
+    for n in range(iterations):
         results = []
-        for a in range(len(variables)):
-            value = weight[a] * (random.uniform(grade[a][0], grade[a][1]))
+        for i in range(len(variables)):
+            value = weight[i] * (random.uniform(grade[i][0], grade[i][1]))
             results.append(value)
         final_results.append(sum(results))
     return final_results
 
-j = Monte_Carlo([[5,10], [3,6], [5.5,8], [4,8], [7.7,8], [6,8], [8,9], [1,5], [6,7.04], [4.68,8.01]])
-k = Monte_Carlo([[2,6], [8.5,9.56], [7,9],[7,9], [5,8], [6,10], [3.45, 6.7], [8,10], [4.5,7], [6,9]])
-p = Monte_Carlo([[6,8], [8,9], [2,6],[3,7], [6.89,8.65], [9,10], [7,9], [3,8], [4.03,7.1], [5.12, 8]])
+a= Monte_Carlo([[4,9], [8.5,10], [5,9], [8.5,9.5], [3,7], [4,9], [3,8], [7.5,8], [5,9], [0,6]])
+b = Monte_Carlo([[5,10], [4,4], [7,9],[2,8], [6,9.5], [8.5,10], [8,10], [0,7], [3,9], [0,3]])
+c = Monte_Carlo([[4,7], [6,8], [6,9],[6.5,9], [2,6], [6.5,9], [5.5,9], [9.5,9.5], [5,9], [4, 9]])
+
+fig = plt.figure(figsize=(10,6))
+sns.displot(a)
+sns.displot(b)
+sns.displot(c);
+ptl.legend(labels=['Job A', 'Job B', 'Job C'])
+plt.title('Monte-Carlo Distributions')
+plt.show()
