@@ -4,5 +4,4 @@ if customer_basket_cost >= 100:
     print(str(customer_basket_cost) + "€")
 else:
     print(str(customer_basket_cost + customer_basket_weight * 1.20) + "€")
-    jjjjjjjjjjjjjjjjj
-    HTTPHandler(host, url, method='GET', secure=False, credentials=None, context=None)
+    
